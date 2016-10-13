@@ -1,12 +1,8 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 require_once('Database.php');
 /**
- * Description of Configure
+ * Database funtions for the configure page
  *
  * @author stiffler
  */
