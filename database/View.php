@@ -1,12 +1,7 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- * Description of View
+ * Database functions for the view page
  *
  * @author stiffler
  */
@@ -53,7 +48,7 @@ class View {
 
                     foreach ($filters AS $filter) {
                         if ($row2['col'] == $filter['filter']) {
-                            // error_log(print_r($row2, TRUE));
+                           
                             // If it fails any filter, skip this replicate
                             if (!$this->passes_filter($filter, $row2)) {
 
@@ -104,7 +99,7 @@ class View {
 
                     foreach ($filters AS $filter) {
                         if ($row2['col'] == $filter['filter']) {
-                            // error_log(print_r($row2, TRUE));
+                     
                             // If it fails any filter, skip this replicate
                             if (!$this->passes_filter($filter, $row2)) {
 
@@ -232,7 +227,7 @@ class View {
 
     function passes_filter($filter, $row) {
 
-        //error_log("Testing " . $filter['filter'] ." " . $row['data'] . " " . $filter['relationship'] . " " . $filter['filter_value']);
+      
         switch ($filter['relationship']) {
             case ">":
                 if ($row['data'] > $filter['filter_value']) {
