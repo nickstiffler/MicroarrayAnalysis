@@ -108,6 +108,11 @@ function updateExpsResult(result) {
 	}
 }
 
+function editExp(id) {
+	// Need to load the content in the form
+	$('#editExp').modal('show');
+}
+
 function submitExp() {
 	$("#save-gpr").addClass("disabled");
 	$("#gpr-load").alert();
