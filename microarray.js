@@ -77,7 +77,7 @@ function clearNewProject() {
 
 function updateExps() {
 	if(document.getElementById('exp_table')) {
-        
+      
 		$.getJSON('ajax/experiment.php', 'exps=1', updateExpsResult);
 	}
 }
@@ -165,7 +165,7 @@ function sendFile(event) {
 }
 
 function submitExpResult(result) {
-	//alert(result);
+
 	updateExps();
 	document.exp.reset();
     
@@ -221,7 +221,7 @@ function updateConExpsResult(result) {
 	}
 	for(exp in result) {
         
-        exps[result[exp].id] = "unused";
+        	exps[result[exp].id] = "unused";
         
 		var unused = "<tr><td>" + result[exp].name + "</td><td><input type='radio' name='" + result[exp].id + "' id='unused" + result[exp].id + "' onclick='setExpStatus(" + result[exp].id + ")' value='unused' checked /></td>";
 		var main = "<td><input type='radio' onclick='setExpStatus(" + result[exp].id + ")' name='" + result[exp].id + "' id='main" + result[exp].id + "' value='main' /></td>";
@@ -266,10 +266,14 @@ function addOutput() {
 }
 
 function updateFilters() {
-    $("#filter_div").empty();
+	$("#filter_div").empty();
 	
 	for(filter in filters) {
-        $("#filter_div").append("<div>" + filters[filter]['filter'] + " " + filters[filter]['relationship'] + " " + filters[filter]['filter_value'] + " <a href='#' onclick='filters.splice(" + filter + ", 1); updateFilters();'><i class='icon-minus-sign'></a></div>")
+        $("#filter_div").append("<div>" + filters[filter]['filter'] + 
+				" " + filters[filter]['relationship'] + 
+				" " + filters[filter]['filter_value'] + 
+				" <a href='#' onclick='filters.splice(" + filter + 
+				", 1); updateFilters();'><i class='icon-minus-sign'></a></div>");
 		
 	}
 	$.post("ajax/configure.php", {
@@ -280,9 +284,12 @@ function updateFilters() {
 function updateOutputs() {
 
 	$("#output_div").empty();
-    var post = "{";
+    	var post = "{";
 	for(output in outputs) {
-        $("#output_div").append("<div>" + outputs[output]['stat'] + " " + outputs[output]['outputs'] + " <a href='#' onclick='outputs.splice(" + output + ", 1); updateOutputs();'><i class='icon-minus-sign'></a></div>");
+        	$("#output_div").append("<div>" + outputs[output]['stat'] + 
+					" " + outputs[output]['outputs'] + 
+					" <a href='#' onclick='outputs.splice(" + output + 
+					", 1); updateOutputs();'><i class='icon-minus-sign'></a></div>");
        // post += output: {stat: outputs['stat'], outputs: outputs['outputs']};
         
 	}
